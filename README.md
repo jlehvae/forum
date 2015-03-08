@@ -11,5 +11,6 @@ https://jykkeforum.herokuapp.com
 A website that lets it's users to read threads that contains posts by other users. If the user registers through Github
 he / she can also start new threads and write new posts. Users can also like or dislike posts.
 
-## Data model
+## Wiki
 
+https://github.com/jlehvae/forum/wiki
