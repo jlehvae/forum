@@ -9,3 +9,10 @@ script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: YiJq8tzV8BSeU3YkaHVOTj9fq14fMl7HVi7xq9sZrOPNu2ct91L59iDDi6Pc2lou5JEn5W5r4hvHrDKiENK7GMOptJrO62uulVext0WOaodM3L0LSygv3iOJt6PBFs7eeqUlxoUfCkmhYDyIu3V20W+edecUd3pofCuZTfFXadE=
+  app: jykkeforum
+  on:
+    repo: jlehvae/forum
