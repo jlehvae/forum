@@ -59,12 +59,12 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  # gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
 
@@ -74,5 +74,5 @@ group :development do
   gem 'rack-mini-profiler'
 end
 
-gem 'omniauth-github'
+# gem 'omniauth-github'
 
