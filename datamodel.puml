@@ -1,0 +1,36 @@
+@startuml
+
+left to right direction
+
+object User {
+    id : int
+    name: String
+}
+
+object Thread {
+    id : int
+    title: String
+    user_id : int
+}
+
+object Post {
+    id : int
+    description : String
+    user_id : int
+    thread_id : int
+}
+
+object Like {
+    id : int
+    user_id : int
+    post_id : int
+    positive : boolean
+}
+
+Thread "1" -- "*" Post
+Post "1" -- "*" Like
+User "1" -- "*" Like
+User "1" -- "*" Thread
+User "1" -- "*" Post
+
+@enduml
