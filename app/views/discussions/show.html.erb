@@ -5,5 +5,21 @@
   <%= @discussion.title %>
 </p>
 
+<% @discussion.posts.each do |post| %>
+    <p><%= post.description %></p>
+<% end %>
+
+<% if current_user %>
+    <%= form_for(@post) do |f| %>
+
+        <%= f.hidden_field :discussion_id, :value => @discussion.id %>
+
+        <label>message</label>
+        <%= f.text_area :description %>
+
+        <%= f.submit "submit", class:'btn btn-default' %>
+    <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
 <%= link_to 'Back', discussions_path %>
