@@ -2,7 +2,9 @@
 
 <h1>Listing Discussions</h1>
 
-<table class="table">
+<%= link_to 'New Discussion', new_discussion_path, class: 'btn btn-default' if current_user %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -24,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Discussion', new_discussion_path %>
+

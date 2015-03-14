@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :discussions
 
+  delete 'signout', to: 'sessions#destroy'
   resource :session, only: [:new, :create, :delete]
 
   # The priority is based upon order of creation: first created -> highest priority.
