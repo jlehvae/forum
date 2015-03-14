@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   root 'discussions#index'
 
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
+
   resources :users
 
   resources :posts
 
   resources :discussions
+
+  resource :session, only: [:new, :create, :delete]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
