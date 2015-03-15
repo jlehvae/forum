@@ -5,7 +5,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.includes(:posts).all
+    @discussions = Discussion.order('updated_at DESC').includes(:posts).all
   end
 
   # GET /discussions/1
