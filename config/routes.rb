@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create_oauth'
 
-  resources :users
-
   resources :posts
 
   resources :discussions

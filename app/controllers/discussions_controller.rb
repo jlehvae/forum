@@ -1,5 +1,5 @@
 class DiscussionsController < ApplicationController
-  before_action :set_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :set_discussion, only: [:show, :destroy]
 
   # GET /discussions
   # GET /discussions.json
@@ -26,10 +26,8 @@ class DiscussionsController < ApplicationController
     respond_to do |format|
       if @discussion.save
         format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
-        format.json { render :show, status: :created, location: @discussion }
       else
         format.html { render :new }
-        format.json { render json: @discussion.errors, status: :unprocessable_entity }
       end
     end
   end
