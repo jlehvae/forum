@@ -14,8 +14,16 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong><%= post.user.username %></strong> <span class="text-muted"><%= post.created_at.to_formatted_s(:long)  %></span>
-          <span class="label label-success">+1</span>
-          <span class="label label-danger">-666</span>
+
+          <% if current_user %>
+              <%= link_to "+#{post.likes.positive_likes.count}", like_post_path(post_id: post.id, positive: 'true'), method: :post, class: "label label-success" %>
+              <%= link_to "-#{post.likes.negative_likes.count}", like_post_path(post_id: post.id, positive: 'false'), method: :post, class: "label label-danger" %>
+          <% else %>
+              <span class="label label-success">+1</span>
+              <span class="label label-danger">-666</span>
+          <% end %>
+
+
         </div>
         <div class="panel-body">
           <%= post.description %>

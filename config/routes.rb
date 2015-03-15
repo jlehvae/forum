@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :discussions
 
+  post 'like_post', to: 'likes#create'
+
   delete 'signout', to: 'sessions#destroy'
   resource :session, only: [:new, :create, :delete]
 
