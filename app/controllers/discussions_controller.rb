@@ -1,6 +1,6 @@
 class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show, :destroy]
-  before_action :ensure_that_signed_in, except: [:create, :new]
+  before_action :ensure_that_signed_in, only: [:create, :new]
 
   # GET /discussions
   # GET /discussions.json
