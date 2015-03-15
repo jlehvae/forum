@@ -5,7 +5,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.includes(:posts).all
   end
 
   # GET /discussions/1
@@ -36,7 +36,7 @@ class DiscussionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_discussion
-      @discussion = Discussion.find(params[:id])
+      @discussion = Discussion.includes(:posts, :likes).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
