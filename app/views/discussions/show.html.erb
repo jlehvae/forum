@@ -1,25 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div>
+    <h1>
+      <%= @discussion.title %>
+    </h1>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @discussion.title %>
-</p>
-
-<% @discussion.posts.each do |post| %>
-    <p><%= post.description %></p>
-<% end %>
+<ul class="list-group">
+  <% @discussion.posts.each do |post| %>
+      <%= render 'post', post: post %>
+  <% end %>
+</ul>
 
 <% if current_user %>
-    <%= form_for(@post) do |f| %>
+    <div class="container">
+      <div>
+        <br style="clear:both">
+        <div class="form-group col-md-4 ">
+          <%= form_for(@post) do |f| %>
 
-        <%= f.hidden_field :discussion_id, :value => @discussion.id %>
+              <%= f.hidden_field :discussion_id, :value => @discussion.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
 
-        <label>message</label>
-        <%= f.text_area :description %>
+              <label id="messageLabel">message</label>
+              <%= f.text_area :description, class: "form-control input-sm " %>
 
-        <%= f.submit "submit", class:'btn btn-default' %>
-    <% end %>
+              <%= f.submit "submit", class:'btn btn-default' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 <% end %>
+
 
 <%= link_to 'Edit', edit_discussion_path(@discussion) %> |
 <%= link_to 'Back', discussions_path %>
