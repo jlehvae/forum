@@ -18,10 +18,6 @@ class DiscussionsController < ApplicationController
     @discussion = Discussion.new
   end
 
-  # GET /discussions/1/edit
-  def edit
-  end
-
   # POST /discussions
   # POST /discussions.json
   def create
@@ -35,30 +31,6 @@ class DiscussionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @discussion.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /discussions/1
-  # PATCH/PUT /discussions/1.json
-  def update
-    respond_to do |format|
-      if @discussion.update(discussion_params)
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @discussion }
-      else
-        format.html { render :edit }
-        format.json { render json: @discussion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /discussions/1
-  # DELETE /discussions/1.json
-  def destroy
-    @discussion.destroy
-    respond_to do |format|
-      format.html { redirect_to discussions_url, notice: 'Discussion was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
