@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
       if user
         session[:user_id] = user.id
-        redirect_to user_path(user), notice: "Welcome back!"
+        redirect_to :root, notice: "Welcome back!"
       else
         newUser = User.new(username: login)
         newUser.save()

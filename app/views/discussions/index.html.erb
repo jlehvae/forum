@@ -14,10 +14,8 @@
   <tbody>
     <% @discussions.each do |discussion| %>
       <tr>
-        <td><%= discussion.title %></td>
-        <td><%= link_to 'Show', discussion %></td>
-        <td><%= link_to 'Edit', edit_discussion_path(discussion) %></td>
-        <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to discussion.title, discussion %></td>
+        <td>started by <%= discussion.user.username %> @ <%= discussion.created_at.to_formatted_s(:long) %></td>
       </tr>
     <% end %>
   </tbody>
