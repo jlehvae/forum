@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-sm-1">
       <div class="thumbnail">
-        <% if current_user.avatar %>
-            <img class="img-responsive user-photo" src="<%= current_user.avatar %>&s=58">
+        <% if post.user.avatar %>
+            <img class="img-responsive user-photo" src="<%= post.user.avatar %>&s=58">
         <% else %>
             <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
         <% end %>
@@ -19,8 +19,8 @@
               <%= link_to "+#{post.likes.positive_likes.count}", like_post_path(post_id: post.id, positive: 'true'), method: :post, class: "label label-success" %>
               <%= link_to "-#{post.likes.negative_likes.count}", like_post_path(post_id: post.id, positive: 'false'), method: :post, class: "label label-danger" %>
           <% else %>
-              <span class="label label-success">+1</span>
-              <span class="label label-danger">-666</span>
+              <span class="label label-success"><%= "+#{post.likes.positive_likes.count}" %></span>
+              <span class="label label-danger"><%= "-#{post.likes.positive_likes.count}" %></span>
           <% end %>
 
 
