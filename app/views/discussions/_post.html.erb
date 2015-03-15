@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-sm-1">
       <div class="thumbnail">
-        <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+        <% if current_user.avatar %>
+            <img class="img-responsive user-photo" src="<%= current_user.avatar %>&s=58">
+        <% else %>
+            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+        <% end %>
       </div><!-- /thumbnail -->
     </div><!-- /col-sm-1 -->
 
@@ -10,6 +14,8 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong><%= post.user.username %></strong> <span class="text-muted"><%= post.created_at.to_formatted_s(:long)  %></span>
+          <span class="label label-success">+1</span>
+          <span class="label label-danger">-666</span>
         </div>
         <div class="panel-body">
           <%= post.description %>

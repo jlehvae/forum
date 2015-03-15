@@ -14,7 +14,7 @@
   <tbody>
     <% @discussions.each do |discussion| %>
       <tr>
-        <td><%= link_to discussion.title, discussion %></td>
+        <td><%= link_to discussion.title, discussion %> <span class="badge"><%= discussion.posts.count %></span></td>
         <td>started by <%= discussion.user.username %> @ <%= discussion.created_at.to_formatted_s(:long) %></td>
       </tr>
     <% end %>
