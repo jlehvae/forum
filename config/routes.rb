@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'discussions#index'
 
   get 'auth/:provider/callback', to: 'sessions#create_oauth'
+  get 'auth/failure', to: 'discussions#index'
 
   resources :posts
 
