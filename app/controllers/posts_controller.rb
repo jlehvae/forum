@@ -7,13 +7,13 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
-    respond_to do |format|
       if @post.save
-        format.html { redirect_to discussion_path(@post.discussion_id), notice: 'Post was successfully created.' }
+        redirect_to discussion_path(@post.discussion_id), notice: 'Post was successfully created.'
       else
-        format.html { render :new }
+        @discussion = Discussion.find_by id: @post.discussion_id
+        render template: 'discussions/show'
       end
-    end
+
   end
 
   # DELETE /posts/1
