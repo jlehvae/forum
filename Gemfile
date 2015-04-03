@@ -63,6 +63,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov', require: false
+  gem 'rack_session_access'
   # gem 'webmock'
   # gem 'selenium-webdriver'
   # gem 'database_cleaner'
