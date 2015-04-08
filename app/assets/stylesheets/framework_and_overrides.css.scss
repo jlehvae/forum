@@ -44,3 +44,22 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+
+#footer {
+  background-color:#414141;
+}
+
+#footer a {
+  color:#efefef;
+}
+
+.scroll-top {
+  position:fixed;
+  bottom:0;
+  right:6%;
+  z-index:100;
+  background: #ffcc33;
+  font-size:24px;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
+}

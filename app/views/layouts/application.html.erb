@@ -9,6 +9,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+  <div id="wrap">
     <header>
       <%= render 'layouts/navigation' %>
     </header>
@@ -16,5 +17,15 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+    </div>
+    <div id="footer">
+      <div class="container" style="padding: 20px;">
+        <p class="text-muted">This Forum was created by <a href="https://github.com/jlehva">jlehva</a></p>
+      </div>
+    </div>
+
+    <ul class="nav pull-right scroll-top">
+      <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+    </ul>
   </body>
 </html>
