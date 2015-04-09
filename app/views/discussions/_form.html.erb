@@ -1,22 +1,24 @@
 <%= form_for(@discussion) do |f| %>
-  <% if @discussion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
+    <% if @discussion.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
 
-      <ul>
-      <% @discussion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @discussion.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "form-control", autofocus: true %>
     </div>
-  <% end %>
+    <div class="actions">
+      <p></p>
+      <%= f.submit class: 'btn btn-default' %>
 
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    </div>
 <% end %>
